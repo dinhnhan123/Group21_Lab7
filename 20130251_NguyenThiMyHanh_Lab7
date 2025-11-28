@@ -1,0 +1,111 @@
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
+import internal.GlobalVariable as GlobalVariable
+import org.openqa.selenium.Keys as Keys
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+
+WebUI.openBrowser('')
+WebUI.maximizeWindow()
+WebUI.navigateToUrl('https://mwc.com.vn/account/login')
+
+// Login
+WebUI.setText(findTestObject('Login/txt_Email'), 'myhanh26')
+WebUI.setText(findTestObject('Login/txt_Password'), '123@1234')
+WebUI.click(findTestObject('Login/btn_Login'))
+
+// Wait for My Account page
+WebUI.waitForElementVisible(findTestObject('Account/lbl_MyAccount'), 15)
+
+
+//  1: THÔNG TIN CÁ NHÂN
+// Info-1: Xem thông tin cá nhân
+WebUI.navigateToUrl('https://mwc.com.vn/account')
+WebUI.waitForElementVisible(findTestObject('Account/txt_FullName'), 10)
+WebUI.verifyElementPresent(findTestObject('Account/txt_FullName'), 5)
+WebUI.verifyElementPresent(findTestObject('Account/txt_Phone'), 5)
+WebUI.verifyElementPresent(findTestObject('Account/txt_Address'), 5)
+
+
+// Info-2: Cập nhật thông tin thành công
+WebUI.setText(findTestObject('Account/txt_FullName'), 'Nguyễn Thị Mỹ Hạnh')
+WebUI.setText(findTestObject('Account/txt_Address'), '123 Nguyễn Thị Minh Khai, Quận 1')
+WebUI.click(findTestObject('Account/btn_Save'))
+WebUI.waitForElementVisible(findTestObject('Account/lbl_SuccessMsg'), 10)
+WebUI.verifyTextPresent('Cập nhật thông tin thành công', false)
+
+
+// Info-3: Cập nhật thất bại SĐT không hợp lệ
+WebUI.setText(findTestObject('Account/txt_Phone'), '098abc')
+WebUI.click(findTestObject('Account/btn_Save'))
+WebUI.waitForElementVisible(findTestObject('Account/lbl_ErrorMsg_SDT'), 5)
+WebUI.verifyTextPresent('Số điện thoại không hợp lệ', false)
+
+
+// Info-4: Cập nhật thất bại khi bỏ trống Họ và Tên
+WebUI.setText(findTestObject('Account/txt_FullName'), '')
+WebUI.click(findTestObject('Account/btn_Save'))
+WebUI.waitForElementVisible(findTestObject('Account/lbl_ErrorMsg_FullName'), 5)
+WebUI.verifyTextPresent('Vui lòng nhập họ và tên', false)
+
+// 2: LỌC SẢN PHẨM
+WebUI.navigateToUrl('https://mwc.com.vn/giay-nu')
+WebUI.waitForElementVisible(findTestObject('Filter/products_List'), 10)
+
+
+// Filter-1: Màu Đen
+WebUI.click(findTestObject('Filter/color_Black'))
+WebUI.waitForElementVisible(findTestObject('Filter/products_List'), 5)
+WebUI.verifyTextPresent('Đen', false)
+
+
+// Filter-2: Giá 100k – 200k
+WebUI.click(findTestObject('Filter/price_100_200'))
+WebUI.waitForElementVisible(findTestObject('Filter/products_List'), 5)
+WebUI.verifyElementPresent(findTestObject('Filter/item_PriceRange'), 5)
+
+
+// Filter-3: Size 37
+WebUI.click(findTestObject('Filter/size_37'))
+WebUI.waitForElementVisible(findTestObject('Filter/products_List'), 5)
+WebUI.verifyTextPresent('37', false)
+
+
+// Filter-4: Màu Trắng + Giá > 300k
+WebUI.click(findTestObject('Filter/color_White'))
+WebUI.click(findTestObject('Filter/price_300_up'))
+WebUI.waitForElementVisible(findTestObject('Filter/products_List'), 5)
+WebUI.verifyTextPresent('Trắng', false)
+
+
+// Filter-5: Không tìm thấy sản phẩm
+WebUI.click(findTestObject('Filter/color_Green'))
+WebUI.click(findTestObject('Filter/size_32'))
+WebUI.waitForElementVisible(findTestObject('Filter/label_NoResult'), 5)
+WebUI.verifyTextPresent('Không tìm thấy sản phẩm nào', false)
+
+
+// Filter-6: Xóa bộ lọc
+WebUI.click(findTestObject('Filter/btn_ClearFilter'))
+WebUI.waitForElementVisible(findTestObject('Filter/products_List'), 5)
+WebUI.verifyElementPresent(findTestObject('Filter/item_ProductDefault'), 5)
+
+
+
+WebUI.closeBrowser()
+
