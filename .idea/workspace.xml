@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a91336b6-7e90-4c93-aabf-627976e3aae1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/chromedriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH1.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH2.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH3.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH4.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART1.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART2.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART3.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART3.java" afterDir="false" />
-    </list>
+    <list default="true" id="a91336b6-7e90-4c93-aabf-627976e3aae1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +13,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{}]]></component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="TaskManager">
     <servers />
   </component>
