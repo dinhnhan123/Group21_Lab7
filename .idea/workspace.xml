@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3357528c-7382-4d4a-9ec1-56b7f87aedb2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/ChangePasswordTestSuite/ChangePasswordEmptyCurrent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/ChangePasswordTestSuite/ChangePasswordValid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/ChangePasswordTestSuite/ChangePasswordWithEmptyNewPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/ChangePasswordTestSuite/ChangePasswordWithSameAsOld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/ChangePasswordTestSuite/InvalidCurrentPasswordChange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/ChangePasswordTestSuite/PasswordChangeWrongConfirmPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/OrderTestSuite/InvalidOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/OrderTestSuite/OrderWithEmptyAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/OrderTestSuite/OrderWithEmptyName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/OrderTestSuite/OrderWithEmptyPhone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/OrderTestSuite/OrderWithLargeQuantityProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/OrderTestSuite/OrderWithMultipleProducts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20130237_PhanTuanDung_Lab7/OrderTestSuite/ValidOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/chromedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH1.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH2.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH3.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH4.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MVCGroup21/SEARCH4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART1.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART2.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART3.java" beforeDir="false" afterPath="$PROJECT_DIR$/2013025_HaHuyDung_Lab7/src/test/java/com/example/MWCCart/CART3.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="367JNm8T3dQtha3vzqQCNqNzCNa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging 20130235__HaHuyDung__Lab7",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\KR-exported-java-junit-maven-project (1)\2013025_HaHuyDung_Lab7" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3357528c-7382-4d4a-9ec1-56b7f87aedb2" name="Changes" comment="" />
+      <created>1764351642371</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764351642371</updated>
+      <workItem from="1764351644055" duration="693000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
