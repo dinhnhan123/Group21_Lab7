@@ -75,28 +75,24 @@ I.see("Please fill in this field", "#passwordValidationMsg");
 
 // ================ REGISTER =================
 // Test Case 1: Đăng ký hợp lệ
-I.goTo("https://mwc.com.vn/")  // Truy cập vào trang
-I.click("a.account-handle-icon")   // Truy cập trang register
+I.goTo("https://mwc.com.vn/") 
+I.click("a.account-handle-icon") 
 I.fill("#form_register input[name='UserName']", "dinhnhan5678899035")
 I.fill("#form_register input[name='Phone']", "0867764035")
 I.fill("#form_register input[name='Password']", "Dinhthanhnhan12345")
 I.fill("#form_register input[name='PasswordConfirm']", "Dinhthanhnhan12345")
 I.click("#form_register input[type='submit']")
-I.wait(2)  // Chờ 2 giây để đăng nhập hoàn tất
+I.wait(2) 
 
-// Nhấn vào icon tài khoản để vào trang profile
 I.click("a.account-handle-icon[href='/profile']")
-I.wait(2)  // Chờ 2 giây để chuyển sang trang profile
+I.wait(2) 
 
-// Nhấn vào nút Đăng xuất
 I.click("a.profile-sidebar--menu-item[href='/logout']")
-I.wait(2)  // Chờ 2 giây để quá trình đăng xuất hoàn tất
+I.wait(2) 
 
-// Truy cập vào trang đăng nhập lại
 I.goTo("https://mwc.com.vn/") 
-I.wait(2)  // Chờ 2 giây để trang đăng nhập tải lại
+I.wait(2) 
 
-// Kiểm tra trường hợp nhập đúng username nhưng sai password
 I.click("a.account-handle-icon")
 
 
@@ -107,22 +103,22 @@ I.fill("#form_register input[name='Password']", "Dinhthanhnhan12345")
 I.fill("#form_register input[name='PasswordConfirm']", "Dinhthanhnhan12345")
 I.click("#form_register input[type='submit']")
 I.wait(2)
-I.see("Tài khoản đã tồn tại trong hệ thống")  // Kiểm tra thông báo lỗi
+I.see("Tài khoản đã tồn tại trong hệ thống") 
 
 // Test Case 3: Số điện thoại không hợp lệ
 I.fill("#form_register input[name='UserName']", "dinhthanhnhan1234")
-I.fill("#form_register input[name='Phone']", "0987654321235")  // Số điện thoại sai
+I.fill("#form_register input[name='Phone']", "0987654321235") 
 I.fill("#form_register input[name='Password']", "Dinhthanhnhan12345")
 I.fill("#form_register input[name='PasswordConfirm']", "Dinhthanhnhan12345")
 I.click("#form_register input[type='submit']")
 I.wait(2)
-I.see("Số điện thoại không đúng định dạng")  // Kiểm tra thông báo lỗi
+I.see("Số điện thoại không đúng định dạng") 
 
 // Test Case 4: Test Case 4: Mật khẩu và xác nhận mật khẩu không khớp
 I.fill("#form_register input[name='UserName']", "user03")
 I.fill("#form_register input[name='Phone']", "0987654321")
 I.fill("#form_register input[name='Password']", "Dinhnhan123456")
-I.fill("#form_register input[name='PasswordConfirm']", "Dinhnhan654321")  // Không khớp
+I.fill("#form_register input[name='PasswordConfirm']", "Dinhnhan654321")
 I.click("#form_register input[type='submit']")
 I.wait(2)
 I.see("Mật khẩu không giống nhau")
@@ -130,10 +126,10 @@ I.see("Mật khẩu không giống nhau")
 // Test Case 5: Mật khẩu quá ngắn
 I.fill("#form_register input[name='UserName']", "user999")
 I.fill("#form_register input[name='Phone']", "0867764890")
-I.fill("#form_register input[name='Password']", "123")              // Quá ngắn
+I.fill("#form_register input[name='Password']", "123")           
 I.fill("#form_register input[name='PasswordConfirm']", "123")
 I.click("#form_register input[type='submit']")
 I.wait(2)
 I.see("Mật khẩu phải lớn hơn 8 ký tự và nhỏ hơn 20 ký tự!")
 
-// ================== END REGISTER ================= file của mình như này làm sao lưu thành js studio.uilicious
+// ================== END REGISTER =================
