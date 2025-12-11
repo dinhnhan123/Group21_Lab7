@@ -1,4 +1,4 @@
-package com.example.ChangePasswordTestSuite;
+package com.example.OrderTestSuite;
 
 import java.util.regex.Pattern;
 import java.time.Duration;
@@ -11,15 +11,15 @@ import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 
-public class ChangePasswordWithEmptyNewPassword {
+public class ValidOrder {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   JavascriptExecutor js;
+
   @Before
   public void setUp() throws Exception {
-    System.setProperty("webdriver.chrome.driver", "");
     driver = new ChromeDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
@@ -27,23 +27,42 @@ public class ChangePasswordWithEmptyNewPassword {
   }
 
   @Test
-  public void testChangePasswordWithEmptyNewPassword() throws Exception {
+  public void testValidOrder() throws Exception {
     driver.get("https://mwc.com.vn/");
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Đế Lót'])[2]/following::*[name()='svg'][2]")).click();
-    driver.findElement(By.id("UserName")).clear();
-    driver.findElement(By.id("UserName")).sendKeys("opaki1000");
-    driver.findElement(By.id("Password")).clear();
-    driver.findElement(By.id("Password")).sendKeys("opaki1000");
-    driver.findElement(By.id("form_login")).submit();
-    driver.get("https://mwc.com.vn/profile");
-    driver.findElement(By.xpath("//a[@id='password']/span")).click();
-    driver.get("https://mwc.com.vn/password");
-    driver.findElement(By.id("PasswordOld")).click();
-    driver.findElement(By.id("PasswordOld")).clear();
-    driver.findElement(By.id("PasswordOld")).sendKeys("opaki10000");
-    driver.findElement(By.id("PasswordNewConfirm")).clear();
-    driver.findElement(By.id("PasswordNewConfirm")).sendKeys("opaki921");
-    driver.findElement(By.xpath("//div[@id='main']/section[2]/div/div/div[2]/div/form/div/div[2]/div[4]/div[2]/button")).click();
+    pause(2000); // nhìn trang chủ
+
+    driver.findElement(By.xpath("//img[contains(@src,'/Resources/Product/2025/11/03/')]")).click();
+    pause(1500); // nhìn sản phẩm
+
+    driver.findElement(By.id("btnAddToCart")).click();
+    pause(1500);
+
+    driver.findElement(By.xpath("//div[@id='cart-list-item']/div[3]/a/span")).click();
+    pause(1500); // mở giỏ hàng
+
+    driver.findElement(By.id("FullName")).clear();
+    driver.findElement(By.id("FullName")).sendKeys("dung phan");
+    pause(800);
+
+    driver.findElement(By.id("Phone")).clear();
+    driver.findElement(By.id("Phone")).sendKeys("0329676413");
+    pause(800);
+
+    driver.findElement(By.id("Address")).clear();
+    driver.findElement(By.id("Address")).sendKeys("linh trung thu duc");
+    pause(800);
+
+    new Select(driver.findElement(By.id("provinceOptions"))).selectByVisibleText("TP Hồ Chí Minh");
+    pause(1000);
+
+    new Select(driver.findElement(By.id("districtSelect"))).selectByVisibleText("Quận Thủ Đức");
+    pause(1000);
+
+    new Select(driver.findElement(By.id("wardSelect"))).selectByVisibleText("Phường Linh Trung");
+    pause(1000);
+
+    driver.findElement(By.xpath("//button[@id='btnDatHang']/span")).click();
+    pause(2000); // xem kết quả đặt hàng
   }
 
   @After
@@ -53,6 +72,11 @@ public class ChangePasswordWithEmptyNewPassword {
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
     }
+  }
+
+  // ====== Thêm HÀM LÀM CHẬM ======
+  private void pause(long ms) {
+    try { Thread.sleep(ms); } catch (Exception e) {}
   }
 
   private boolean isElementPresent(By by) {

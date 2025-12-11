@@ -8,15 +8,21 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.apache.commons.io.FileUtils;
-import java.io.File;
 
-public class ValidOrder {
+public class OrderWithMultipleProducts {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   JavascriptExecutor js;
+  private void pause(long millis) {
+    try {
+      Thread.sleep(millis);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
   @Before
   public void setUp() throws Exception {
     driver = new ChromeDriver();
@@ -26,66 +32,70 @@ public class ValidOrder {
   }
 
   @Test
-  public void testValidOrder() throws Exception {
+  public void testOrderWithMultipleProducts() throws Exception {
     driver.get("https://mwc.com.vn/");
-    driver.findElement(By.xpath("//img[contains(@src,'https://img.mwc.com.vn/giay-thoi-trang?w=640&h=640&FileInput=/Resources/Product/2025/11/03/z7183542718841_536fa746b959671027ff41bdab22498e.jpg')]")).click();
+    pause(2000);
+
+    driver.findElement(By.xpath("//img[contains(@src,'z7183542718841')]")).click();
+    pause(2000);
+
+    driver.findElement(By.xpath("//a[@id='btnAddToCart']/i")).click();
+    pause(2000);
+
+    driver.findElement(By.id("mm-blocker")).click();
+    pause(1500);
+
+    driver.findElement(By.xpath("//img[@alt='MWC']")).click();
+    pause(2000);
+
+    driver.findElement(By.xpath("//img[contains(@alt, 'G250')]")).click();
+    pause(2000);
+
     driver.findElement(By.id("btnAddToCart")).click();
-    driver.findElement(By.linkText("Xem giỏ hàng")).click();
-    driver.findElement(By.id("FullName")).click();
+    pause(2000);
+
+    driver.findElement(By.id("mm-blocker")).click();
+    pause(1500);
+
+    driver.findElement(By.xpath("//div[@id='nav']/nav/ul/li[3]/a")).click();
+    pause(2000);
+
+    driver.findElement(By.xpath("//img[contains(@alt, 'MWC 5831')]")).click();
+    pause(2000);
+
+    driver.findElement(By.id("btnAddToCart")).click();
+    pause(2000);
+
+    driver.findElement(By.xpath("//div[@id='cart-list-item']/div[3]/a/span")).click();
+    pause(2000);
+
     driver.findElement(By.id("FullName")).clear();
     driver.findElement(By.id("FullName")).sendKeys("dung phan");
+    pause(800);
+
     driver.findElement(By.id("Phone")).clear();
     driver.findElement(By.id("Phone")).sendKeys("0329676413");
+    pause(800);
+
     driver.findElement(By.id("Address")).clear();
-    driver.findElement(By.id("Address")).sendKeys("linh trung thu duc");
-    driver.findElement(By.id("provinceOptions")).click();
+    driver.findElement(By.id("Address")).sendKeys("thu duc");
+    pause(800);
+
     new Select(driver.findElement(By.id("provinceOptions"))).selectByVisibleText("TP Hồ Chí Minh");
-    driver.findElement(By.id("districtSelect")).click();
+    pause(1000);
+
     new Select(driver.findElement(By.id("districtSelect"))).selectByVisibleText("Quận Thủ Đức");
-    driver.findElement(By.id("wardSelect")).click();
+    pause(1000);
+
     new Select(driver.findElement(By.id("wardSelect"))).selectByVisibleText("Phường Linh Trung");
+    pause(1000);
+
     driver.findElement(By.xpath("//button[@id='btnDatHang']/span")).click();
+    pause(3000);
   }
 
   @After
   public void tearDown() throws Exception {
     driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
-  }
-
-  private boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
   }
 }

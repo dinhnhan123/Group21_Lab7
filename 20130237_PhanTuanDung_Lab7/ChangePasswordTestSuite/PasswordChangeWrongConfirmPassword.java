@@ -1,4 +1,4 @@
-package com.example.OrderTestSuite;
+package com.example.ChangePasswordTestSuite;
 
 import java.util.regex.Pattern;
 import java.time.Duration;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 
-public class OrderWithEmptyPhone {
+public class PasswordChangeWrongConfirmPassword {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -26,27 +26,25 @@ public class OrderWithEmptyPhone {
   }
 
   @Test
-  public void testOrderWithEmptyPhone() throws Exception {
+  public void testPasswordChangeWrongConfirmPassword() throws Exception {
     driver.get("https://mwc.com.vn/");
-    driver.findElement(By.xpath("//img[contains(@src,'https://img.mwc.com.vn/giay-thoi-trang?w=640&h=640&FileInput=/Resources/Product/2025/11/03/z7183679343829_8749a5e82df15ca51a87858f6723fc6c.jpg')]")).click();
-    driver.findElement(By.id("btnAddToCart")).click();
-    driver.findElement(By.xpath("//a[@onclick=\"removecart('58799')\"]")).click();
-    driver.findElement(By.xpath("//div[@id='cart-list-item']/div[3]/a/span")).click();
-    driver.findElement(By.id("FullName")).click();
-    driver.findElement(By.id("FullName")).clear();
-    driver.findElement(By.id("FullName")).sendKeys("dung phan");
-    driver.findElement(By.id("Address")).click();
-    driver.findElement(By.id("Address")).click();
-    driver.findElement(By.id("Address")).clear();
-    driver.findElement(By.id("Address")).sendKeys("thu duc");
-    driver.findElement(By.id("provinceOptions")).click();
-    new Select(driver.findElement(By.id("provinceOptions"))).selectByVisibleText("TP Hồ Chí Minh");
-    driver.findElement(By.id("districtSelect")).click();
-    new Select(driver.findElement(By.id("districtSelect"))).selectByVisibleText("Quận Thủ Đức");
-    driver.findElement(By.id("wardSelect")).click();
-    new Select(driver.findElement(By.id("wardSelect"))).selectByVisibleText("Phường Linh Trung");
-    driver.findElement(By.xpath("//button[@id='btnDatHang']/span")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Bạn chưa nhập thông tin nhận hàng!'])[1]/following::button[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Đế Lót'])[2]/following::*[name()='svg'][2]")).click();
+    driver.findElement(By.id("UserName")).clear();
+    driver.findElement(By.id("UserName")).sendKeys("opaki1000");
+    driver.findElement(By.id("Password")).clear();
+    driver.findElement(By.id("Password")).sendKeys("opaki1000");
+    driver.findElement(By.id("form_login")).submit();
+    driver.get("https://mwc.com.vn/profile");
+    driver.findElement(By.xpath("//a[@id='password']/span")).click();
+    driver.get("https://mwc.com.vn/password");
+    driver.findElement(By.id("PasswordOld")).click();
+    driver.findElement(By.id("PasswordOld")).clear();
+    driver.findElement(By.id("PasswordOld")).sendKeys("opaki1000");
+    driver.findElement(By.id("PasswordNew")).clear();
+    driver.findElement(By.id("PasswordNew")).sendKeys("opaki921");
+    driver.findElement(By.id("PasswordNewConfirm")).clear();
+    driver.findElement(By.id("PasswordNewConfirm")).sendKeys("opaki931");
+    driver.findElement(By.xpath("//div[@id='main']/section[2]/div/div/div[2]/div/form/div/div[2]/div[4]/div[2]/button")).click();
   }
 
   @After
