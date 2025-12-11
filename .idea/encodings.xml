@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Group21_20130235_HaHuyDung_Lab7/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Group21_20130235_HaHuyDung_Lab7/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Group21_20130237_PhanTuanDung_Lab7/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Group21_20130237_PhanTuanDung_Lab7/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Group21_20130251_NguyenThiMyHanh_Lab7/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Group21_20130251_NguyenThiMyHanh_Lab7/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Gruop21_20130344_DinhThanhNhan_Lab7/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Gruop21_20130344_DinhThanhNhan_Lab7/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/all-tests-runner/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/all-tests-runner/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/20130235_HaHuyDung_Lab7/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/20130235_HaHuyDung_Lab7/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/20130237_PhanTuanDung_Lab7/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/20130237_PhanTuanDung_Lab7/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/20130251_NguyenThiMyHanh_Lab7/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/20130251_NguyenThiMyHanh_Lab7/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/20130344_DinhThanhNhan_Lab7/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/example/20130344_DinhThanhNhan_Lab7/src/main/resources" charset="UTF-8" />
   </component>
 </project>

@@ -6,8 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="KR-exported-java-junit-maven-project" />
+        <module name="20130235_HaHuyDung_Lab7" />
+        <module name="20130237_PhanTuanDung_Lab7" />
+        <module name="Group21_20130251_NguyenThiMyHanh_Lab7" />
+        <module name="20130344_DinhThanhNhan_Lab7" />
+        <module name="all-tests-runner" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="20130235_HaHuyDung_Lab7 (1)" target="21" />
+      <module name="20130237_PhanTuanDung_Lab7 (1)" target="21" />
+      <module name="20130344_DinhThanhNhan_Lab7 (1)" target="21" />
+      <module name="Group21_20130235_HaHuyDung_Lab7" target="1.8" />
+      <module name="Group21_20130237_PhanTuanDung_Lab7" target="1.8" />
+      <module name="Gruop21_20130344_DinhThanhNhan_Lab7" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
