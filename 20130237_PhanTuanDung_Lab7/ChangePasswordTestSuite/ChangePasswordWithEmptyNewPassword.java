@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 
-public class ChangePasswordValid {
+public class ChangePasswordWithEmptyNewPassword {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -26,25 +26,22 @@ public class ChangePasswordValid {
   }
 
   @Test
-  public void testChangePasswordValid() throws Exception {
+  public void testChangePasswordWithEmptyNewPassword() throws Exception {
     driver.get("https://mwc.com.vn/");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Đế Lót'])[2]/following::*[name()='svg'][2]")).click();
-    driver.findElement(By.id("UserName")).click();
     driver.findElement(By.id("UserName")).clear();
     driver.findElement(By.id("UserName")).sendKeys("opaki1000");
     driver.findElement(By.id("Password")).clear();
-    driver.findElement(By.id("Password")).sendKeys("opaki921");
+    driver.findElement(By.id("Password")).sendKeys("opaki1000");
     driver.findElement(By.id("form_login")).submit();
-    driver.findElement(By.xpath("//span[@id='account-handle']/a/img")).click();
+    driver.get("https://mwc.com.vn/profile");
     driver.findElement(By.xpath("//a[@id='password']/span")).click();
+    driver.get("https://mwc.com.vn/password");
     driver.findElement(By.id("PasswordOld")).click();
     driver.findElement(By.id("PasswordOld")).clear();
-    driver.findElement(By.id("PasswordOld")).sendKeys("opaki921");
-    driver.findElement(By.id("PasswordNew")).click();
-    driver.findElement(By.id("PasswordNew")).clear();
-    driver.findElement(By.id("PasswordNew")).sendKeys("opaki1000");
+    driver.findElement(By.id("PasswordOld")).sendKeys("opaki10000");
     driver.findElement(By.id("PasswordNewConfirm")).clear();
-    driver.findElement(By.id("PasswordNewConfirm")).sendKeys("opaki1000");
+    driver.findElement(By.id("PasswordNewConfirm")).sendKeys("opaki921");
     driver.findElement(By.xpath("//div[@id='main']/section[2]/div/div/div[2]/div/form/div/div[2]/div[4]/div[2]/button")).click();
   }
 

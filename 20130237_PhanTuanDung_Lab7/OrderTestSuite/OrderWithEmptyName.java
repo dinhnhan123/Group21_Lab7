@@ -11,12 +11,18 @@ import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 
-public class OrderWithEmptyAddress {
+public class OrderWithEmptyName {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   JavascriptExecutor js;
+
+  // Hàm pause
+  private void pause(long ms) {
+    try { Thread.sleep(ms); } catch (Exception ignored) {}
+  }
+
   @Before
   public void setUp() throws Exception {
     driver = new ChromeDriver();
@@ -26,27 +32,64 @@ public class OrderWithEmptyAddress {
   }
 
   @Test
-  public void testOrderWithEmptyAddress() throws Exception {
-    driver.get("https://mwc.com.vn/");
-    driver.findElement(By.xpath("//img[contains(@src,'https://img.mwc.com.vn/giay-thoi-trang?w=640&h=640&FileInput=/Resources/Product/2025/11/03/z7183679343829_8749a5e82df15ca51a87858f6723fc6c.jpg')]")).click();
+  public void testOrderWithEmptyName() throws Exception {
+
+    driver.get("https://mwc.com.vn/products/giay-the-thao-nu-mwc-nutt--a374?&c=kem");
+    pause(1200);
+
     driver.findElement(By.id("btnAddToCart")).click();
-    driver.findElement(By.linkText("Xem giỏ hàng")).click();
-    driver.findElement(By.id("FullName")).click();
-    driver.findElement(By.id("FullName")).clear();
-    driver.findElement(By.id("FullName")).sendKeys("dung phan");
+    pause(1200);
+
+    driver.findElement(By.xpath("//div[@id='cart-list-item']/div[3]/a/span")).click();
+    pause(1200);
+
+    driver.get("https://mwc.com.vn/cart");
+    pause(1200);
+
     driver.findElement(By.id("Phone")).click();
+    pause(300);
+
     driver.findElement(By.id("Phone")).clear();
+    pause(300);
+
     driver.findElement(By.id("Phone")).sendKeys("0329676413");
+    pause(1200);
+
     driver.findElement(By.id("Address")).click();
+    pause(300);
+
     driver.findElement(By.id("Address")).clear();
-    driver.findElement(By.id("Address")).sendKeys("dâdada");
+    pause(300);
+
+    driver.findElement(By.id("Address")).sendKeys("thủ đức");
+    pause(1200);
+
     driver.findElement(By.id("provinceOptions")).click();
-    new Select(driver.findElement(By.id("provinceOptions"))).selectByVisibleText("Bạc Liêu");
+    pause(600);
+
+    new Select(driver.findElement(By.id("provinceOptions"))).selectByVisibleText("TP Hồ Chí Minh");
+    pause(1200);
+
     driver.findElement(By.id("districtSelect")).click();
-    driver.findElement(By.id("provinceOptions")).click();
-    new Select(driver.findElement(By.id("provinceOptions"))).selectByVisibleText("-- Chọn tỉnh --");
+    pause(600);
+
+    new Select(driver.findElement(By.id("districtSelect"))).selectByVisibleText("Quận Thủ Đức");
+    pause(1200);
+
+    driver.findElement(By.id("info-input")).click();
+    pause(600);
+
+    driver.findElement(By.id("wardSelect")).click();
+    pause(600);
+
+    new Select(driver.findElement(By.id("wardSelect"))).selectByVisibleText("Phường Linh Trung");
+    pause(1200);
+
     driver.findElement(By.xpath("//button[@id='btnDatHang']/span")).click();
+    pause(1500);
+
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Bạn chưa nhập thông tin nhận hàng!'])[1]/following::button[1]")).click();
+    pause(1000);
   }
 
   @After
