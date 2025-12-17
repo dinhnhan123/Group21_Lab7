@@ -10,8 +10,11 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.File;
 
 public class CART2 {
@@ -40,7 +43,11 @@ public class CART2 {
     Thread.sleep(500);
 
     ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-    driver.findElement(By.id("btnAddToCart")).click();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement addToCart = wait.until(
+            ExpectedConditions.elementToBeClickable(By.id("btnAddToCart"))
+    );
+    addToCart.click();
     driver.findElement(By.xpath("//div[@id='cart-list-item']/div[3]/a/span")).click();
     driver.findElement(By.xpath("//span[@id='site-cart-handle']/a/img")).click();
     driver.findElement(By.xpath("//div[@id='cart-list-item']/div[3]/a/span")).click();

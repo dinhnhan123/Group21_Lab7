@@ -37,76 +37,65 @@ public class OrderWithEmptyPhone {
 
   @Test
   public void testOrderWithEmptyPhone() throws Exception {
-    driver.get("https://mwc.com.vn/");
-    pause(1200);
 
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-    WebElement img = wait.until(ExpectedConditions.presenceOfElementLocated(
-            By.xpath("//img[contains(@src,'z7183679343829_8749a5e82df15ca51a87858f6723fc6c.jpg')]")
-    ));
-
-// Scroll vào giữa màn hình
-    ((JavascriptExecutor) driver).executeScript(
-            "arguments[0].scrollIntoView({block: 'center'});", img
-    );
-
-    Thread.sleep(800); // chờ animation load hình
-
-// Click bằng JS (bỏ qua việc bị chắn)
-    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", img);
-
-    Thread.sleep(1200);
-
-
-    driver.findElement(By.id("btnAddToCart")).click();
-    pause(1200);
-
-    driver.findElement(By.xpath("//div[@id='cart-list-item']/div[3]/a/span")).click();
-
-
-    WebElement fullName = driver.findElement(By.id("FullName"));
-    ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300);");
-    Thread.sleep(500);
-    fullName.click();
-
-
-    driver.findElement(By.id("FullName")).clear();
-    pause(300);
-    driver.findElement(By.id("FullName")).sendKeys("dung phan");
-    pause(1200);
-
-    // Không nhập phone (theo test)
-    driver.findElement(By.id("Address")).click();
-    pause(300);
-    driver.findElement(By.id("Address")).click();
-    pause(300);
-    driver.findElement(By.id("Address")).clear();
-    pause(300);
-    driver.findElement(By.id("Address")).sendKeys("thu duc");
-    pause(1200);
-
-    driver.findElement(By.id("provinceOptions")).click();
-    pause(600);
-    new Select(driver.findElement(By.id("provinceOptions"))).selectByVisibleText("TP Hồ Chí Minh");
-    pause(1200);
-
-    driver.findElement(By.id("districtSelect")).click();
-    pause(600);
-    new Select(driver.findElement(By.id("districtSelect"))).selectByVisibleText("Quận Thủ Đức");
-    pause(1200);
-
-    driver.findElement(By.id("wardSelect")).click();
-    pause(600);
-    new Select(driver.findElement(By.id("wardSelect"))).selectByVisibleText("Phường Linh Trung");
-    pause(1200);
-
-    driver.findElement(By.xpath("//button[@id='btnDatHang']/span")).click();
+    driver.get("https://mwc.com.vn/products/giay-the-thao-nu-mwc-nutt--a374?&c=kem");
     pause(1500);
 
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Bạn chưa nhập thông tin nhận hàng!'])[1]/following::button[1]")).click();
-    pause(1000);
+    // Add to cart
+    WebElement addToCart = driver.findElement(By.id("btnAddToCart"));
+    js.executeScript("arguments[0].scrollIntoView({block:'center'});", addToCart);
+    pause(500);
+    js.executeScript("arguments[0].click();", addToCart);
+    pause(1500);
+
+    // Vào trang cart
+    driver.get("https://mwc.com.vn/cart");
+    pause(1500);
+
+    // Nhập FullName
+    WebElement fullName = driver.findElement(By.id("FullName"));
+    js.executeScript("arguments[0].scrollIntoView({block:'center'});", fullName);
+    pause(500);
+    fullName.clear();
+    fullName.sendKeys("dung phan");
+    pause(800);
+
+    // KHÔNG nhập Phone (theo test case)
+
+    // Nhập Address
+    WebElement address = driver.findElement(By.id("Address"));
+    address.clear();
+    address.sendKeys("thu duc");
+    pause(800);
+
+    // Province
+    new Select(driver.findElement(By.id("provinceOptions")))
+            .selectByVisibleText("TP Hồ Chí Minh");
+    pause(800);
+
+    // District
+    new Select(driver.findElement(By.id("districtSelect")))
+            .selectByVisibleText("Quận Thủ Đức");
+    pause(800);
+
+    // Ward
+    new Select(driver.findElement(By.id("wardSelect")))
+            .selectByVisibleText("Phường Linh Trung");
+    pause(800);
+
+    // Đặt hàng
+    WebElement orderBtn = driver.findElement(By.id("btnDatHang"));
+    js.executeScript("arguments[0].scrollIntoView({block:'center'});", orderBtn);
+    pause(500);
+    js.executeScript("arguments[0].click();", orderBtn);
+    pause(1500);
+
+    // Verify message
+    Assert.assertTrue(
+            driver.getPageSource().contains("Bạn chưa nhập thông tin nhận hàng!")
+    );
   }
+
 
   @After
   public void tearDown() throws Exception {

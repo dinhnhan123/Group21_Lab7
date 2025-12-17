@@ -26,19 +26,20 @@ public class InvalidOrder {
 
     driver.get("https://mwc.com.vn/");
 
-    WebElement img = driver.findElement(By.xpath(
-            "//img[contains(@src,'z7183679343829_8749a5e82df15ca51a87858f6723fc6c.jpg')]"
-    ));
+    WebElement product = driver.findElement(
+            By.xpath("//div[@id='home']//a[.//p][1]")
+    );
+
 
 // scroll vào giữa màn hình (tránh header che)
     ((JavascriptExecutor) driver).executeScript(
-            "arguments[0].scrollIntoView({block: 'center'});", img
+            "arguments[0].scrollIntoView({block: 'center'});", product
     );
 
     Thread.sleep(800);
 
 // dùng JS click để bỏ qua overlay
-    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", img);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
 
 
 

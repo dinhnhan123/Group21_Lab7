@@ -9,8 +9,11 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.File;
 
 public class ValidOrder {
@@ -34,10 +37,20 @@ public class ValidOrder {
     driver.get("https://mwc.com.vn/");
     pause(2000); // nhìn trang chủ
 
-    driver.findElement(By.xpath("//img[contains(@src,'/Resources/Product/2025/11/03/')]")).click();
-    pause(1500); // nhìn sản phẩm
+    WebElement firstProduct = driver.findElement(
+            By.xpath("//a[contains(@href,'/products/')][1]")
+    );
 
-    driver.findElement(By.id("btnAddToCart")).click();
+    js.executeScript("arguments[0].scrollIntoView({block:'center'});", firstProduct);
+    pause(800);
+    js.executeScript("arguments[0].click();", firstProduct); // nhìn sản phẩm
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+    WebElement addToCart = wait.until(
+            ExpectedConditions.elementToBeClickable(By.id("btnAddToCart"))
+    );
+    addToCart.click();
     pause(1500);
 
     driver.findElement(By.xpath("//div[@id='cart-list-item']/div[3]/a/span")).click();

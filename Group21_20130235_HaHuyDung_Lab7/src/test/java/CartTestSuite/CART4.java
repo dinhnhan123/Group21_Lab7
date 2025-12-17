@@ -5,62 +5,59 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CART4 {
     private WebDriver driver;
-    private String baseUrl;
+    private WebDriverWait wait;
     JavascriptExecutor js;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        baseUrl = "https://mwc.com.vn/";
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         js = (JavascriptExecutor) driver;
+        driver.manage().window().maximize();
     }
 
     @Test
-    public void testCART4() throws Exception {
-        driver.get(baseUrl);
+    public void testCART4() {
+        driver.get("https://mwc.com.vn/");
 
-        WebElement product1 = driver.findElement(By.xpath(
-                "//div[@id='home']/section[3]/div/div/div/div/div[2]/div/div/div/a/div/p"
-        ));
+        // ===== SẢN PHẨM 1 =====
+        By product1 = By.xpath(
+                "(//div[@id='home']/section[3]//a/div/p)[1]"
+        );
 
-        js.executeScript("arguments[0].scrollIntoView({block:'center'});", product1);
-        Thread.sleep(500);
-        js.executeScript("arguments[0].click();", product1);
-        Thread.sleep(500);
+        WebElement p1 = wait.until(ExpectedConditions.elementToBeClickable(product1));
+        js.executeScript("arguments[0].scrollIntoView({block:'center'});", p1);
+        js.executeScript("arguments[0].click();", p1);
 
-        driver.findElement(By.id("btnAddToCart")).click();
-        Thread.sleep(800);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("btnAddToCart"))).click();
 
-        // Quay lại trang home
+        // Quay lại home (DOM reload)
         driver.navigate().back();
-        Thread.sleep(700);
 
-        // --- Sản phẩm 2 (lấy sản phẩm kế tiếp) ---
-        WebElement product2 = driver.findElement(By.xpath(
-                "(//div[@id='home']/section[3]/div/div/div/div/div[2]/div/div/div/a/div/p)[2]"
-        ));
+        // ===== SẢN PHẨM 2 =====
+        By product2 = By.xpath(
+                "(//div[@id='home']/section[3]//a/div/p)[2]"
+        );
 
-        js.executeScript("arguments[0].scrollIntoView({block:'center'});", product2);
-        Thread.sleep(500);
-        js.executeScript("arguments[0].click();", product2);
-        Thread.sleep(500);
+        WebElement p2 = wait.until(ExpectedConditions.elementToBeClickable(product2));
+        js.executeScript("arguments[0].scrollIntoView({block:'center'});", p2);
+        p2.click();
 
-        driver.findElement(By.id("btnAddToCart")).click();
-        Thread.sleep(800);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("btnAddToCart"))).click();
 
-
-        driver.findElement(By.xpath("//a[contains(@href,'cart')]")).click();
-        Thread.sleep(800);
+        // ===== CLICK CART (FIX STALE) =====
+        By cartBtn = By.xpath("//a[contains(@href,'cart')]");
+        wait.until(ExpectedConditions.elementToBeClickable(cartBtn)).click();
     }
+
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         driver.quit();
     }
 }

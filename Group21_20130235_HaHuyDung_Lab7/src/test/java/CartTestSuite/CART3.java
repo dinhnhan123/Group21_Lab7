@@ -45,7 +45,11 @@ public class CART3 {
     ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     driver.findElement(By.id("btnAddToCart")).click();
     driver.findElement(By.xpath("//a[contains(@href,'cart')]")).click();
-    driver.findElement(By.xpath("//button[@onclick='removeItem(57967)']")).click();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement removeBtn = wait.until(ExpectedConditions.elementToBeClickable(
+            By.xpath("//button[contains(@onclick,'removeItem')]")
+    ));
+    removeBtn.click();
   }
 
 

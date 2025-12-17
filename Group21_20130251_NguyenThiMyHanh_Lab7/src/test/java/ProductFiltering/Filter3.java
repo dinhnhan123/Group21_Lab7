@@ -10,8 +10,12 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.File;
 
 public class Filter3 {
@@ -32,9 +36,49 @@ public class Filter3 {
   @Test
   public void testFilter3() throws Exception {
     driver.get("https://mwc.com.vn/");
-    driver.findElement(By.xpath("//div[@id='nav']/nav/ul/li[3]/ul/li/a")).click();
-    driver.findElement(By.xpath("//div[@id='main']/section/div/div/div/div/div/div/div/a/span/span")).click();
-    driver.findElement(By.xpath("//div[@id='filter-sidebar1']/div[2]/div/div/div[2]/div[2]/div/div[2]/label")).click();
+    Thread.sleep(2000);
+
+    Actions actions = new Actions(driver);
+
+    // Hover vào menu cha (li[3])
+    WebElement menuParent = driver.findElement(
+            By.xpath("//div[@id='nav']/nav/ul/li[3]/a")
+    );
+    actions.moveToElement(menuParent).perform();
+    Thread.sleep(800);
+
+    // Click submenu
+    WebElement subMenu = driver.findElement(
+            By.xpath("//div[@id='nav']/nav/ul/li[3]/ul/li/a")
+    );
+    subMenu.click();
+    Thread.sleep(1500);
+
+    // Click sản phẩm đầu tiên
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+    WebElement filterBtn = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                    By.xpath("//div[@id='main']//a/span/span")
+            )
+    );
+
+// scroll element vào giữa màn hình
+    ((JavascriptExecutor)driver).executeScript(
+            "arguments[0].scrollIntoView({block:'center'});", filterBtn
+    );
+
+    Thread.sleep(500);
+    ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].click();", filterBtn
+    );
+
+    Thread.sleep(1500);
+
+    // Click filter
+    driver.findElement(
+            By.xpath("//div[@id='filter-sidebar1']//label")
+    ).click();
   }
 
   @After

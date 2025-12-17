@@ -9,7 +9,9 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrderWithMultipleProducts {
   private WebDriver driver;
@@ -39,8 +41,14 @@ public class OrderWithMultipleProducts {
     driver.get("https://mwc.com.vn/");
     pause(2000);
 
-    driver.findElement(By.xpath("//img[contains(@src,'z7183542718841')]")).click();
-    pause(2000);
+    WebElement firstProduct = driver.findElement(
+            By.xpath("//a[contains(@href,'/products/')][1]")
+    );
+
+    js.executeScript("arguments[0].scrollIntoView({block:'center'});", firstProduct);
+    pause(800);
+    js.executeScript("arguments[0].click();", firstProduct);
+
 
     driver.findElement(By.xpath("//a[@id='btnAddToCart']/i")).click();
     pause(2000);
@@ -58,7 +66,11 @@ public class OrderWithMultipleProducts {
 
     pause(2000);
 
-    driver.findElement(By.id("btnAddToCart")).click();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement addToCart = wait.until(
+            ExpectedConditions.elementToBeClickable(By.id("btnAddToCart"))
+    );
+    addToCart.click();
     pause(2000);
 
     driver.findElement(By.id("mm-blocker")).click();
@@ -97,7 +109,16 @@ public class OrderWithMultipleProducts {
     new Select(driver.findElement(By.id("wardSelect"))).selectByVisibleText("Phường Linh Trung");
     pause(1000);
 
-    driver.findElement(By.xpath("//button[@id='btnDatHang']/span")).click();
+    WebElement orderBtn = driver.findElement(By.id("btnDatHang"));
+
+    ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].scrollIntoView({block:'center'});", orderBtn
+    );
+    pause(800);
+
+    ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].click();", orderBtn
+    );
     pause(3000);
   }
 
